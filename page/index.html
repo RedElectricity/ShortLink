@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+
+    <style>
+        #Box {
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 20%;
+            height: 40%;
+        }
+
+        #Box #Icon {
+            font-size: larger;
+        }
+    </style>
+
+    <script>
+        function getLink() {
+            mdui.snackbar("Request sent, plz wait")
+
+            postData = {
+                "link": document.getElementById("link").nodeValue
+            }
+
+            fetch('/api/addLink',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                }, 
+                body: JSON.stringify(postData) 
+            }).then(response => response.json()).then(json => document.getElementById("getLink").setAttribute("herf",document.domain + json["linkId"])).catch(mdui.snackbar("Fail..."))
+        }
+    </script>
+
+    <title>ShortLink</title>
+</head>
+<body>
+    <div id="Box" class="mdui-shadow-10">
+        <i id="Icon" class="mdui-icon material-icons" style="transform: scale(3);">link</i>
+        <div class="mdui-typo-display-1" style="text-align:center;">ShortLink</div><br>
+        <div class="mdui-typo-body-2" style="text-align:center;"><a id="getLink" target="_blank" rel="noopener noreferrer"></a></div>
+        <div class="mdui-textfield mdui-textfield-floating-label" style="margin-left: 5%;margin-right: 5%;">
+            <label class="mdui-textfield-label">Link</label>
+            <input class="mdui-textfield-input" type="text" id="link"/>
+        </div>
+        <button class="mdui-btn mdui-color-theme-accent mdui-ripple mdui-center " onclick="getLink()">Get</button>
+    </div>
+</body>
+</html>

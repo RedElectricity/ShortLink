@@ -1,0 +1,1 @@
+This folder contains the built output assets for the worker "shortlink" generated at 2022-12-30T15:02:09.412Z.

@@ -1,0 +1,13 @@
+name = "shortlink"
+type = "webpack"
+main="index.js"
+compatibility_date = "2022-12-30"
+
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+
+kv_namespaces = [
+  { binding = "LinkDatabase", id = "<ignored>" }
+]

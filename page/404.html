@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+
+    <style>
+        #Box {
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 15%;
+            height: 40%;
+        }
+
+        #Box #Icon {
+            font-size: larger;
+        }
+    </style>
+
+    <title>404 Not Found | ShortLink</title>
+</head>
+<body>
+    <div id="Box" class="mdui-shadow-10">
+        <i id="Icon" class="mdui-icon material-icons" style="transform: scale(3);">error</i>
+        <div class="mdui-typo-display-1" style="text-align:center;">404 Not Found</div><br>
+        <div class="mdui-typo-body-2" style="text-align:center;"> 您要访问的LinkId不存在</div>
+    </div>
+</body>
+</html>
